@@ -1,68 +1,57 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import 'tailwindcss';
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@custom-variant dark (&:where(.dark, .dark *));
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@theme {
+  /* Colors */
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  --color-white: hsl(0, 0%, 100%);
+  --color-very-light-gray: hsl(0, 0%, 98%);
+  --color-dark-gray: hsl(0, 0%, 52%);
+  --color-very-dark-blue-l: hsl(200, 15%, 8%);
+  --color-very-dark-blue: hsl(207, 26%, 17%);
+  --color-dark-blue: hsl(209, 23%, 22%);
+  --color-blue: hsl(240, 100%, 50%);
+  /* Font Family */
+  --font-*: initial;
+  --font-sans: 'Nunito Sans', sans-serif;
+  /* Font Size */
+  --text-200: 0.75rem;
+  --text-300: 0.875rem;
+  --text-400: 1rem;
+  --text-500: 1.125rem;
+  --text-600: 1.25rem;
+  --text-700: 1.375rem;
+  --text-800: 1.5rem;
+  --text-900: 2rem;
+  /* Box Shadow */
+  --shadow-one: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-two: 0 2px 9px rgba(0, 0, 0, 0.053);
+  --shadow-three: 0 0 7px 2px rgba(0, 0, 0, 0.029);
+  --shadow-four: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+  /* Breakpoints */
+  --breakpoint-lg: 68rem;
+  --breakpoint-xl: 82rem;
+  /* Grid */
+  --my-grid-cols: repeat(auto-fit, minmax(16.3rem, 1fr));
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-  a:hover {
-    color: #747bff;
+  to {
+    transform: rotate(360deg);
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+.spinner {
+  display: block;
+  width: max-content;
+  margin: auto;
+  color: black;
+  animation: spin 1000ms linear infinite;
+}
+.spinner svg {
+  display: block;
 }
