@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 function CountryCard({ country }) {
   return (
-    <div className="dark:bg-dark-blue relative mx-auto flex w-full max-w-[16.5rem] cursor-pointer flex-col gap-5 rounded-[5px] bg-white shadow-(--shadow-three) transition-all duration-300 hover:scale-105 has-[:focus]:ring-2 has-[:focus]:ring-blue-500 has-[:focus]:ring-offset-2">
+    <li className="dark:bg-dark-blue relative mx-auto flex w-full max-w-[16.5rem] cursor-pointer flex-col gap-5 rounded-[5px] bg-white shadow-(--shadow-three) transition-all duration-300 hover:scale-105 has-[:focus]:ring-2 has-[:focus]:ring-blue-500 has-[:focus]:ring-offset-2">
       <img
         className="h-40 rounded-[5px]"
         src={country.flags.png}
@@ -38,7 +38,7 @@ function CountryCard({ country }) {
           </div>
         </dl>
       </div>
-    </div>
+    </li>
   );
 }
 

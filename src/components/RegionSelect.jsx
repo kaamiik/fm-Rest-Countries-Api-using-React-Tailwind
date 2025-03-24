@@ -13,6 +13,7 @@ function RegionSelect({ selectedKey, onSelectionChange, regions }) {
       selectedKey={selectedKey}
       onSelectionChange={onSelectionChange}
       className="text-200 md:text-300"
+      name="regionFilter"
     >
       <Label className="sr-only">Filter by region</Label>
 

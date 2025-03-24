@@ -52,15 +52,24 @@ Users should be able to:
 
 During this project, I gained valuable insights into several key React and web development concepts:
 
-1. **Component State Management**
+1. **URL-Based State Management**
 
-   - Learned about proper state lifting and prop passing between parent and child components
-   - Gained experience with form state handling in separate components
+   - Implemented URL parameters using `useSearchParams` for search and filter states
+   - Learned about maintaining application state in the URL for better user experience
+   - Created shareable and bookmarkable filtered views
+
+   ```javascript
+   const [searchParams, setSearchParams] = useSearchParams();
+   // Reading from URL: /?search=united&regionFilter=Europe
+   const searchTerm = searchParams.get('search');
+   const selectedRegion = searchParams.get('regionFilter');
+   ```
 
 2. **React Router Navigation**
 
    - Implemented dynamic routing with URL parameters for country details
    - Mastered the use of `useNavigate` hook for programmatic navigation
+   - Integrated search parameters with router functionality
 
    ```javascript
    const navigate = useNavigate();
@@ -90,15 +99,17 @@ During this project, I gained valuable insights into several key React and web d
    - Learned about persisting user preferences using localStorage
    - Managed theme-related state across components
 
-5. **Performance Optimization**
+5. **React Aria Components**
 
+   - Implemented accessible select components using React Aria
+   - Learned about proper ARIA attributes and roles
+   - Enhanced keyboard navigation and screen reader support
+
+6. **Performance and User Experience**
    - Implemented lazy loading for images
    - Created reusable components for better code organization
-
-6. **Accessibility Considerations**
-   - Added proper ARIA labels and roles
-   - Ensured keyboard navigation works correctly
-   - Maintained semantic HTML structure
+   - Enhanced user experience with URL-based state persistence
+   - Enabled sharing and bookmarking of filtered views
 
 These learnings have significantly improved my understanding of React best practices and modern web development patterns.
 

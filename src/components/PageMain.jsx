@@ -4,10 +4,13 @@ import SearchFilterForm from './SearchFilterForm';
 import CountryCard from './CountryCard';
 
 import { filterCountries } from '../utils';
+import { useSearchParams } from 'react-router';
 
 function PageMain({ data }) {
-  const [searchTerm, setSearchTerm] = React.useState('');
-  const [selectedRegion, setSelectedRegion] = React.useState('');
+  const [searchParams] = useSearchParams();
+  const searchTerm = searchParams.get('countrySearch') || '';
+  const selectedRegion = searchParams.get('regionFilter') || '';
+
   const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
   const filteredCountries = filterCountries(data, searchTerm, selectedRegion);
@@ -16,13 +19,7 @@ function PageMain({ data }) {
     <main className="mx-auto flex max-w-[80rem] flex-col gap-8 px-4 py-6 md:gap-12 md:px-8 md:py-12 xl:px-0">
       <h1 className="sr-only">Countries Information</h1>
 
-      <SearchFilterForm
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        selectedRegion={selectedRegion}
-        setSelectedRegion={setSelectedRegion}
-        regions={regions}
-      />
+      <SearchFilterForm regions={regions} />
 
       {filteredCountries?.length === 0 ? (
         <div className="mt-8 text-center">
@@ -37,11 +34,11 @@ function PageMain({ data }) {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-(--my-grid-cols) gap-10 md:gap-[4.6875rem]">
+        <ul className="grid grid-cols-(--my-grid-cols) gap-10 md:gap-[4.6875rem]">
           {filteredCountries.map((country) => {
             return <CountryCard key={country.cca3} country={country} />;
           })}
-        </div>
+        </ul>
       )}
     </main>
   );
